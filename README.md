@@ -1,70 +1,59 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Run the application
 
 In the project directory, you can run:
 
-### `npm start`
+### npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
+### npm test
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## General approach
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project required that People data be displayed in a table format. I wanted to build on that by allowing the user to perform most of the CRUD tasks within the same table. Similar to a spreadsheet, it would allow the user to create data within the same page as reading the data and allow the user to edit the data inline as well.
 
-### `npm run eject`
+Each table row first displays the Person's record metadata followed buttons that allow the user to either read the PeopleNotes data, edit data, or delete data. When opening a Person's individual Notes section, the user has the option to add more notes from there or delete existing notes. (Please note: I actually added the ability to edit these notes, which I left commented in the code, until I realized that PeopleNotes shouldn't be edited from the code challenge prompt.)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Features include:
+* Create/Read/Update/Delete for People data. Create/Read/Delete for PeopleNotes data.
+* Ability to toggle viewing individual Person's notes.
+* Ability to edit Person's data within its table row.
+* Conditionally display different button options for user based on if Person has notes ("Open") or not ("Add").
+* Individual PeopleNotes "Save" button is disabled unless Note input has text.
+* Create/Edit Person form has validation for required fields as well as Zip Code format (5-digit number).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Work
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* More Testing: I didn't get around to adding more tests based on this app's features
+* Docker Setup
+* Upon Create/Update/Delete success, refactoring to update state for individual record directly rather than GET-ing all data again
+* Form Validation: Review proper birthday format; Warn user of duplicate name (but still allow them to create duplicate)
+* Date picker for birthday
+* Generally improve app styling/format
+* Make app more responsive across screen/device sizes
+* Add keyboard shortcuts (tabbing, pressing Enter to save, general accessibility)
+* Applying animation to visual changes within the app, i.e. open/closing individual Person's notes, adding new data to table, deleting data
+* Messaging to indicate if Create/Update data saving was successful or not; highlighting new data that's added to the table
+* Ability to cancel editing individual Person record (get out of Edit Mode) without needing to re-Save data
+* Loading indicator when Creating/Reading/Updating/Deleting data
+* Soft delete/Recover from Trash
+* Creating PeopleNotes for individual Person while creating said new Person record
+* Table pagination
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## References
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* AJAX https://api.jquery.com/jquery.ajax/
+* React Hooks https://reactjs.org/docs/hooks-overview.html
+* serializeArray https://api.jquery.com/serializeArray/
+* How to use form inputs within a table (html) https://stackoverflow.com/questions/1249688/html-is-it-possible-to-have-a-form-tag-in-each-table-row-in-a-xhtml-valid-way
+* Remove 0 when rendering a component conditionally https://www.designcise.com/web/tutorial/why-is-react-showing-0-when-conditionally-rendering-a-component
+* How to format arrays/objects properly when using setState hook https://stackoverflow.com/questions/59100863/how-to-set-state-array-using-react-hooks
+* Add Bootstrap to Create React App https://create-react-app.dev/docs/adding-bootstrap/
+* How to use Moment with React https://www.delftstack.com/howto/react/moment-react/
